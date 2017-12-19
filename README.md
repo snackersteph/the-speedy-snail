@@ -3,7 +3,7 @@
 ## Background
 
 > My approach to solving this coding challenge:
-> Build a real web api that I can use to send an email to myself. Host it somewhere so I can play with it and make sure it actually sends a real email.
+> "Build a real web api that I can use to send an email to myself. Host it somewhere so I can play with it and make sure it actually sends a real email."
 
 ## Requirements
 
