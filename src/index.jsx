@@ -7,7 +7,26 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
+      token: '',
+      status: 'Submit Token'
     }
+    this.setState = this.setState.bind(this);
+    this.updateToken = this.updateToken.bind(this);
+    this.handleToken = this.handleToken.bind(this); 
+  }
+
+  handleToken(e) {
+    this.setState({
+      token: e.target.value
+    });
+  }
+
+  updateToken() {
+    if (this.state.token !== '') {
+      this.setState({
+        status: 'Done!'
+      });
+    } 
   }
 
   render () {
@@ -33,7 +52,6 @@ class App extends React.Component {
               </Form>            
             </Grid.Column>
             <Grid.Column>
-              {}
               <Button type='submit' basic color='orange' onClick={this.updateToken}>{this.state.status}</Button>
             </Grid.Column>
           </Grid.Row>
