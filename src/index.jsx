@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import { Container, Header, Image, Form, Button, Grid  } from 'semantic-ui-react';
+import { Container, Header, Image, Form, Button, Grid, Divider, Input, TextArea  } from 'semantic-ui-react';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
       token: '',
-      status: 'Submit Token'
+      status: 'Submit Token',
+      color: 'orange'
     }
     this.setState = this.setState.bind(this);
     this.updateToken = this.updateToken.bind(this);
@@ -24,7 +25,8 @@ class App extends React.Component {
   updateToken() {
     if (this.state.token !== '') {
       this.setState({
-        status: 'Done!'
+        status: 'Done!',
+        color: 'green'
       });
     } 
   }
@@ -52,10 +54,20 @@ class App extends React.Component {
               </Form>            
             </Grid.Column>
             <Grid.Column>
-              <Button type='submit' basic color='orange' onClick={this.updateToken}>{this.state.status}</Button>
+              <Button type='submit' basic color={this.state.color} onClick={this.updateToken}>{this.state.status}</Button>
             </Grid.Column>
           </Grid.Row>
         </Grid>
+
+        <Divider  />
+
+        <Form action="https://postmail.invotes.com/send" method="post" id="email_form">
+          <Form.Input type='hidden' name='access_token' value={this.state.token} />
+          <Form.Field control={Input} label='Email Receipient' placeholder='friend@email.com' />
+          <Form.Field type='text' name='subject' id='messageSubject' control={Input} label='Message Subject' placeholder='Subject' />
+          <Form.Field name='text' control={TextArea} label='Your Message' placeholder='Write message here' />
+          <Button type='submit' basic color='orange' >Send Email</Button>
+        </Form>
 
       </Container>
     </div>)
