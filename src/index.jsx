@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import { Container, Header, Image, Form, Button, Grid, Divider, Input, TextArea  } from 'semantic-ui-react';
+import { Container, Header, Image, Form, Button, Grid, Divider, Input, TextArea, Transition  } from 'semantic-ui-react';
 
 class App extends React.Component {
   constructor(props) {
@@ -33,8 +33,9 @@ class App extends React.Component {
 
   render () {
     return (
-    <div>
-      <Container text className='bodyContainer'>
+      <Transition animation='fade up' duration={1000} transitionOnMount={true}>
+      <div>
+        <Container text className='bodyContainer'>
         <Image src="http://cdn.allthingsnuclear.org/wp-content/uploads/2016/01/DBD-15-Figure-1-snail-front-from-www-snail-world-com.jpg" size='large' centered />
         <Header as='h1' textAlign='center' color='orange'>THE SPEEDY SNAIL</Header>
         <Header as='h3' textAlign='center'>Sending email is more than a million times faster than snail mail!</Header>
@@ -70,7 +71,8 @@ class App extends React.Component {
         </Form>
 
       </Container>
-    </div>)
+    </div>
+    </Transition>)
   }
 }
 
