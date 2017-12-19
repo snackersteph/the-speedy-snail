@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
+import { Container, Header, Image  } from 'semantic-ui-react';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,17 +13,18 @@ class App extends React.Component {
   render () {
     return (
     <div>
-      <h1>The Speedy Snail</h1>
-      <h2>Sending email is more than a million times faster than snail mail!</h2>
-      <form action="https://postmail.invotes.com/send" method="post" id="email_form">
-        <input type="text" name="subject" placeholder="Subject" />
-        <textarea name="text" placeholder="Message"></textarea>
-        <input type="hidden" name="access_token" value={this.state.token} />
-        <input type="hidden" name="success_url" value=".?message=Email+Successfully+Sent%21&isError=0" />
-        <input type="hidden" name="error_url" value=".?message=Email+could+not+be+sent.&isError=1" />
-        <input type="text" name="reply_to" placeholder="Your Email" /> 
-        <input id="submit_form" type="submit" value="Send" />
-      </form>
+
+      <Container text className='bodyContainer'>
+        <Image src="http://cdn.allthingsnuclear.org/wp-content/uploads/2016/01/DBD-15-Figure-1-snail-front-from-www-snail-world-com.jpg" size='large' centered />
+        <Header as='h1' textAlign='center' color='orange'>THE SPEEDY SNAIL</Header>
+        <Header as='h3' textAlign='center'>Sending email is more than a million times faster than snail mail!</Header>
+
+        <p> 
+          To send your first email, please generate an access token with <a href="https://postmail.invotes.com/" target="_blank"> Postmail</a>. 
+          You will need to enter your access token with each visit to this page. After you receive your token, please enter it here:
+        </p>
+
+      </Container>
     </div>)
   }
 }
