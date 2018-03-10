@@ -5,6 +5,8 @@
 > My approach to solving this coding challenge:
 > "Build a real web api that I can use to send an email to myself. Host it somewhere so I can play with it and make sure it actually sends a real email."
 
+Check it out in action! https://serene-citadel-28994.herokuapp.com/
+
 ## Requirements
 
 - body-parser: 1.17.2
